@@ -1,0 +1,20 @@
+# https://docs.docker.com/engine/reference/builder/#dockerignore-file
+# https://golang.org/pkg/path/filepath/#Match
+
+# Skip hidden files
+.*
+*/.*
+!src/.coveragerc
+!src/.pylintrc
+
+# Skip compiled python files
+**/__pycache__
+
+# Skip test db
+**/*.sqlite
+**/*.sqlite3
+
+# Other
+build/openshift
+venv
+env/fb_key_for_unit_tests.json
