@@ -47,47 +47,6 @@
                 "kind": "build",
                 "isDefault": true
             }
-        },
-        {
-            "label": "make/migrate",
-            "type": "shell",
-            "options": {
-                "cwd": "${workspaceFolder}/src"
-            },
-            "command": "source ${workspaceFolder}/app.env.bash 2>/dev/null; ${workspaceFolder}/src/manage.py makemigrations && ${workspaceFolder}/src/manage.py migrate",
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "make/cmsg",
-            "type": "shell",
-            "options": {
-                "cwd": "${workspaceFolder}/src"
-            },
-            "command": "source ${workspaceFolder}/app.env.bash 2>/dev/null; ${workspaceFolder}/src/manage.py makemessages && ${workspaceFolder}/src/manage.py compilemessages",
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "exporthtml",
-            "type": "shell",
-            "options": {
-                    "cwd":"${workspaceFolder}/src",
-                    "statusbar": {
-                        "hide": true
-                    }
-            },
-            "presentation": {
-                "echo": true,
-                "reveal": "silent",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
-            },
-            "command":"mjml ${fileDirname}/${fileBasenameNoExtension}.mjml -o ${fileDirname}/${fileBasenameNoExtension}.html --config.minify true",
-            "problemMatcher": [],
-            "group": "build"
         }
     ]
 }

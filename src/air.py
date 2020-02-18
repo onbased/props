@@ -1,6 +1,23 @@
 import os
 
+from mbvk import MBVKAuction
 from airtable import Airtable
+from settings import *
 
-airtable = Airtable('appc6a3oA3jmgB3TG', 'tblXVowNDPY3M3eNi', api_key=os.getenv('AIRTABLE_APIKEY', ''))
-print(airtable.get_all(maxRecords=20))
+airtable = Airtable(AIRTABLE_CONFIG['db'], AIRTABLE_CONFIG['table'], api_key=AIRTABLE_CONFIG['apiKey'])
+auctionAPI = MBVKAuction()
+
+for auction in auctionAPI.get(['017.V.1118/2017/69']):
+    imageLinks = []
+    for image in auction['images']:
+        imageLinks.append({
+            'url': image
+        })
+    record = {
+        'Images': imageLinks,
+        **auction['details']
+    }
+    print('=====================================')
+    print('Inserting record to db ...')
+    print(record)
+    airtable.insert(record)

@@ -10,7 +10,7 @@
             "type": "python",
             "request": "launch",
             "cwd": "${workspaceFolder}/src",
-            "program": "${workspaceFolder}/src/run.py",
+            "program": "${workspaceFolder}/src/air.py",
             "envFile": "${workspaceFolder}/app.env",
             "args": [
             ]
